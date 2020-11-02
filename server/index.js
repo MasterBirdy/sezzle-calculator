@@ -37,6 +37,8 @@ if (process.env.NODE_ENV === "production") {
 
 app.get("/api", (req, res) => {
     if (!req.session.color) {
+        req.session.color = "#000000";
+        req.session.save();
         return res.json({ color: null });
     } else {
         return res.json({ color: req.session.color });

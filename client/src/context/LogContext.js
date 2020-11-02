@@ -4,7 +4,9 @@ import { v4 as uuidv4 } from "uuid";
 import io from "socket.io-client";
 import axios from "axios";
 
-const ENDPOINT = "http://localhost:4000";
+const ENDPOINT = `${
+    process.env.NODE_ENV === "production" ? process.env.PRODUCTION_SOCKET : process.env.DEVELOPMENT_SOCKET
+}`;
 const socket = io(ENDPOINT);
 
 const LOG_LIMIT = 10;

@@ -5,7 +5,7 @@ import io from "socket.io-client";
 import axios from "axios";
 
 const ENDPOINT = `${
-    process.env.NODE_ENV === "production" ? process.env.PRODUCTION_SOCKET : process.env.DEVELOPMENT_SOCKET
+    process.env.NODE_ENV === "production" ? process.env.REACT_APP_PROD_SOCKET : process.env.REACT_APP_DEV_SOCKET
 }`;
 const socket = io(ENDPOINT);
 

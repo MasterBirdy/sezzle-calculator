@@ -6,11 +6,13 @@ const socket = require("socket.io");
 require("dotenv").config();
 const session = require("express-session");
 const MemoryStore = require("memorystore")(session);
+app.set("trust proxy", 1);
 const sessionMiddleware = require("express-session")({
     secret: process.env.SECRET || "secret-key",
     resave: true,
     saveUninitialized: true,
     store: new MemoryStore({}),
+    cookie: { secure: true },
 });
 
 const server = Server(app);

@@ -16,7 +16,7 @@ const sessionMiddleware = require("express-session")({
     resave: true,
     saveUninitialized: true,
     store: new MemoryStore({}),
-    cookie: { secure: process.env.NODE_ENV === "production" },
+    cookie: { secure: process.env.SECURE === "true" },
 });
 
 const server = Server(app);

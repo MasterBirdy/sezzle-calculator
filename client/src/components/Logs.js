@@ -35,12 +35,15 @@ const Logs = () => {
 
     return (
         <LogContainer>
-            {logs.map((aLog) => (
-                <p key={aLog.id}>
-                    <Name color={aLog.color}>{aLog.name === "" ? "Anonymous" : aLog.name}: </Name>
-                    {aLog.savedValue} {aLog.operator} {aLog.prevValue} = {aLog.calculatedValue}
-                </p>
-            ))}
+            {logs
+                .slice(0)
+                .reverse()
+                .map((aLog) => (
+                    <p key={aLog.id}>
+                        <Name color={aLog.color}>{aLog.name === "" ? "Anonymous" : aLog.name}: </Name>
+                        {aLog.savedValue} {aLog.operator} {aLog.prevValue} = {aLog.calculatedValue}
+                    </p>
+                ))}
         </LogContainer>
     );
 };
